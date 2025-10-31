@@ -78,13 +78,12 @@ public class PantallaJuego implements Screen {
             Gdx.audio.newSound(Gdx.files.internal("pop-sound.mp3"))
         );
         nave.setVidas(vidas);
+        nave.setJuego(this);
 
         this.r = new Random();
 
-        Random r = new Random();
         float naveX = nave.getArea().x;
         float naveY = nave.getArea().y;
-
         float distanciaSeguraNave = 200f;
         float distanciaEntreAst = 80f;
 
@@ -196,6 +195,8 @@ public class PantallaJuego implements Screen {
 
         dibujaHUD();
 
+        nave.update(delta);
+
         if (!nave.estaHerido()) {
             for (int i = 0; i < balas.size(); i++) {
                 Bullet b = balas.get(i);
@@ -249,12 +250,12 @@ public class PantallaJuego implements Screen {
             b.draw(batch);
         }
 
-        nave.draw(batch, this, delta);
+        nave.draw(batch);
 
         if (itemDobleMisil != null) {
             itemDobleMisil.update(delta);
             itemDobleMisil.draw(batch);
-            if (nave.getHitbox().overlaps(itemDobleMisil.getSprite().getBoundingRectangle())) {
+            if (nave.getHitbox().overlaps(itemDobleMisil.getAreaDeColision())) {
                 nave.activarDobleCohete(Float.MAX_VALUE);
                 dobleMisilActivado = true;
                 itemDobleMisil.destruir();

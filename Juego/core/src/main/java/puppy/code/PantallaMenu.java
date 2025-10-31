@@ -32,7 +32,6 @@ public class PantallaMenu implements Screen {
 
         fondo = new Texture(Gdx.files.internal("PortadaSubmarino.png"));
 
-        // Fuentes predeterminadas, solo escaladas y coloreadas
         fontTitulo = new BitmapFont();
         fontTitulo.setColor(Color.CYAN);
         fontTitulo.getData().setScale(3.5f);
@@ -59,14 +58,12 @@ public class PantallaMenu implements Screen {
         batch.begin();
         batch.draw(fondo, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        // === Texto principal centrado ===
         String titulo = "BIENVENIDO A SUBMAGAME";
         layout.setText(fontTitulo, titulo);
         float tituloX = (Gdx.graphics.getWidth() - layout.width) / 2f;
         float tituloY = (Gdx.graphics.getHeight() / 2f) + 100;
         fontTitulo.draw(batch, layout, tituloX, tituloY);
 
-        // === Texto de inicio (parpadea) ===
         if (mostrarTexto) {
             String textoStart = "Presiona ESPACIO para comenzar";
             layout.setText(fontTexto, textoStart);
@@ -75,7 +72,6 @@ public class PantallaMenu implements Screen {
             fontTexto.draw(batch, layout, textoX, textoY);
         }
 
-        // === Texto de instrucciones ===
         String textoInstr = "Presiona I para instrucciones";
         layout.setText(fontTexto, textoInstr);
         float instrX = (Gdx.graphics.getWidth() - layout.width) / 2f;
