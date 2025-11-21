@@ -1,0 +1,16 @@
+SubmaGame - GM FINAL
+
+1) Abrir el juego en eclipse
+Paso a paso
+file -> import -> existing gradel proyect -> proyect root directory -> browse -> SubmaGame-Final -> Juego 
+
+2) Correr el juego dentro de eclipse
+SpaceNav2024/src/main/java/puppy.code.lwjgl3/LwjglLauncher.java  <-- En esta ruta podemos correr el juego
+
+
+CONTROLES DEL JUEGO
+W -> Arriba
+A -> Izquierda
+S -> Abajo
+D -> Derecha
+ESPACIO -> Disparar
